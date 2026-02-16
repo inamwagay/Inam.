@@ -252,40 +252,6 @@
             width: 360px;
         }
 
-        /* Chat widget styles (used in About section when replacing the image) */
-        .chat-widget {
-            width: 420px;
-            height: 300px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 0.75rem;
-            padding: 0.5rem;
-            display: flex;
-            flex-direction: column;
-            color: #e8e8f8;
-            border: 1px solid rgba(139,158,255,0.06);
-        }
-        .chat-header {
-            font-weight: 700;
-            color: var(--first-color);
-            margin-bottom: 0.5rem;
-            text-align: center;
-        }
-        .chat-messages {
-            flex: 1 1 auto;
-            overflow: auto;
-            padding: 0.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        .chat-message { max-width: 100%; }
-        .chat-message.user { align-self: flex-end; background: rgba(139,158,255,0.12); padding: 0.5rem 0.6rem; border-radius: 0.5rem; }
-        .chat-message.bot { align-self: flex-start; background: rgba(255,255,255,0.03); padding: 0.5rem 0.6rem; border-radius: 0.5rem; }
-        .chat-form { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
-        .chat-input { flex: 1 1 auto; padding: 0.5rem; border-radius: 0.5rem; border: 1px solid rgba(139,158,255,0.08); background: transparent; color: #fff; }
-        .chat-send { background: var(--first-color); color: #fff; border: none; padding: 0.45rem 0.75rem; border-radius: 0.5rem; cursor: pointer; }
-        .chat-config { margin-top: 0.5rem; font-size: 0.8rem; color: #bdbde6; }
-
         .button {
             display: inline-block;
             background-color: var(--first-color);
@@ -775,117 +741,16 @@
             <h2 class="section-title">About Me</h2>
             <div class="about__container bd-grid">
                 <div class="about__img">
-                    <!-- Chat widget replaces the static image. User must supply their OpenAI API key in the widget. -->
-                    <div class="chat-widget" id="chat-widget">
-                        <div class="chat-header">Ask about Mohit</div>
-                        <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
-                        <form id="chat-form" class="chat-form">
-                            <input id="chat-input" class="chat-input" placeholder="Ask about my skills or experience..." autocomplete="off" />
-                            <button type="submit" class="chat-send">Send</button>
-                        </form>
-                        <div class="chat-config" id="chat-config">
-                            <div style="margin-top:6px"> </div>
-                            <div style="margin-top:8px; text-align:center;">
-                                <a id="resume-download" class="button" href="/assets/Resumes/Arumalla_Mohit_Krishna.pdf" download style="padding:6px 12px;font-size:0.85rem;">Download Resume</a>
-                            </div>
-                        </div>
-                    </div>
+                    <img src="assets/img/memoji.png" alt="Mohit Krishna Arumalla">
                 </div>
                 <div>
                     <h2 class="about__subtitle">Software Engineer</h2>
-                    <p class="about__text">Results-driven Software Engineer with 2+ years of experience specializing in building scalable distributed systems, backend microservices, and data modeling applications. Proficient in Golang, C++, Java, and Python to develop high-performance, production-grade systems handling complex data. Experienced in collaborating with cross-functional teams under Agile methodologies to deliver tested solutions driving business impact.</p>
+                    <p class="about__text">I'm a Software Engineer passionate about building scalable, high-performance systems across the full stack. With 2+ years of experience, I've architected microservices handling 50K+ daily queries, designed real-time data pipelines syncing millions of records with sub-second latency, and optimized systems for 70% memory reduction. I excel at solving complex problems—from distributed systems and backend optimization to modern web applications. Whether building performant APIs with Golang and gRPC, crafting intuitive frontends, or optimizing infrastructure, I focus on creating solutions that are fast, maintainable, and drive real business impact.</p>
                 </div>
             </div>
         </section>
 
-    <script>
-        // Chat widget logic: collects resume text from the page and queries OpenAI with the user's API key stored in session
-        (function () {
-            const form = document.getElementById('chat-form');
-            const input = document.getElementById('chat-input');
-            const messagesEl = document.getElementById('chat-messages');
-            // no client-side key input — server proxy supplies the API key
 
-            function appendMessage(text, who = 'bot') {
-                const el = document.createElement('div');
-                el.className = 'chat-message ' + (who === 'user' ? 'user' : 'bot');
-                el.textContent = text;
-                messagesEl.appendChild(el);
-                messagesEl.scrollTop = messagesEl.scrollHeight;
-            }
-
-            function buildResumeContext() {
-                // The server proxy provides the resume context; the frontend sends only the user's question.
-                return '';
-            }
-
-            function getSessionId() {
-                let sid = sessionStorage.getItem('chat_session_id');
-                if (!sid) {
-                    sid = 's_' + Math.random().toString(36).slice(2, 12);
-                    sessionStorage.setItem('chat_session_id', sid);
-                    sessionStorage.setItem('chat_count', '0');
-                }
-                return sid;
-            }
-
-            async function queryOpenAI(question) {
-                // client-side per-session rate limit: 10 queries
-                const count = parseInt(sessionStorage.getItem('chat_count') || '0', 10);
-                if (count >= 10) {
-                    throw new Error('Rate limit: maximum 10 queries per session reached.');
-                }
-                // increment local counter for this session
-                sessionStorage.setItem('chat_count', String(count + 1));
-
-                const sessionId = getSessionId();
-
-                // Call the server-side proxy instead of OpenAI directly
-                const res = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'X-Session-Id': sessionId },
-                    body: JSON.stringify({ question })
-                });
-                if (!res.ok) {
-                    const txt = await res.text();
-                    // if server returns 429 (server-side session limit), reflect it to client and decrement local counter
-                    if (res.status === 429) {
-                        // decrement local count to allow user to try again after refresh (server enforces limit)
-                        const current = parseInt(sessionStorage.getItem('chat_count') || '0', 10);
-                        sessionStorage.setItem('chat_count', String(Math.max(0, current - 1)));
-                        throw new Error(txt || 'Rate limit exceeded on server');
-                    }
-                    throw new Error('Proxy error: ' + res.status + ' ' + txt);
-                }
-                const json = await res.json();
-                return json.answer || '';
-            }
-
-            if (form) {
-                form.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const q = input.value.trim();
-                    if (!q) return;
-                    appendMessage(q, 'user');
-                    input.value = '';
-                    appendMessage('...', 'bot');
-                    try {
-                        const answer = await queryOpenAI(q);
-                        // replace the last '...' bot message
-                        const last = messagesEl.querySelector('.chat-message.bot:last-child');
-                        if (last) last.textContent = answer;
-                        else appendMessage(answer, 'bot');
-                    } catch (err) {
-                        const last = messagesEl.querySelector('.chat-message.bot:last-child');
-                        if (last) last.textContent = 'Error: ' + err.message;
-                        else appendMessage('Error: ' + err.message, 'bot');
-                    }
-                });
-            }
-
-            // no client-side key handling
-        })();
-    </script>
 
         <!--===== SKILLS =====-->
         <section class="skills section" id="skills">
@@ -979,4 +844,65 @@
                 </div>
 
                 <div class="project__item">
-                    <h3 class="project__title">Elasticsearch Configuration Service</h
+                    <h3 class="project__title">Elasticsearch Configuration Service</h3>
+                    <p class="project__tech">Go, Elasticsearch, Microservices</p>
+                    <p class="project__date">Mar 2024 – Jul 2024</p>
+                    <ul class="project__description">
+                        <li>Developed centralized configuration management service for multi-tenant Elasticsearch clusters</li>
+                        <li>Implemented dynamic configuration updates with zero-downtime rollouts using Kubernetes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!--===== EDUCATION =====-->
+        <section class="education section" id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="education__container bd-grid">
+                <div class="education__item">
+                    <h3 class="education__degree">Master of Science in Computer Science</h3>
+                    <p class="education__university">Stony Brook University | New York, USA</p>
+                    <p class="education__date">Aug 2022 – May 2024</p>
+                    <p class="education__gpa">GPA: 3.5/4.0</p>
+                    <p class="education__courses"><strong>Key Courses:</strong> Advanced Data Structures, Analysis of Algorithms, Systems Programming, Database Systems, Computer Networks, Operating Systems, Advanced Topics in Distributed Systems</p>
+                </div>
+
+                <div class="education__item">
+                    <h3 class="education__degree">Bachelor of Technology in Computer Science & Engineering</h3>
+                    <p class="education__university">Anil Neerukonda Institute of Technology (ANIT) | Visakhapatnam, India</p>
+                    <p class="education__date">Jul 2019 – May 2023</p>
+                    <p class="education__gpa">GPA: 3.71/4.0</p>
+                    <p class="education__courses"><strong>Key Courses:</strong> Data Structures, Algorithms, Database Management Systems, Operating Systems, Computer Networks, Software Engineering, Web Technologies</p>
+                </div>
+            </div>
+        </section>
+
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact__container bd-grid">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <p style="color: #b0b0b0; margin-bottom: 1rem;">Feel free to reach out to me for collaborations or inquiries:</p>
+                    <div style="margin: 1.5rem 0;">
+                        <a href="mailto:marumalla@cs.stonybrook.edu" style="color: var(--first-color); text-decoration: none; margin: 0 1rem;"><i class='bx bx-envelope'></i> marumalla@cs.stonybrook.edu</a>
+                    </div>
+                    <div style="margin: 1.5rem 0;">
+                        <a href="https://www.linkedin.com/in/mohit-krishna-arumalla-0830551b5/" target="_blank" style="color: var(--first-color); text-decoration: none; margin: 0 1rem;"><i class='bx bxl-linkedin'></i> LinkedIn</a>
+                        <a href="https://github.com/mohit-cell" target="_blank" style="color: var(--first-color); text-decoration: none; margin: 0 1rem;"><i class='bx bxl-github'></i> GitHub</a>
+                    </div>
+                    <div style="margin: 2rem 0;">
+                        <a href="assets/Resumes/Mohit_Krishna_Arumalla.pdf" download class="button" style="padding: 0.75rem 2.5rem;">Download Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
