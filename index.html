@@ -1,205 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yesin Roka Magar - Financial Consultant & MDRT Member</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+        Yesin <span>Roka</span>
+    </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#accomplishment">Accomplishment</a></li>
+                <li><a href="#future-strategies">Visions</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
 
-        <link rel="stylesheet" href="assets/css/styles.css">
-
-        <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-
-        <title>Portfolio website complete</title>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#" class="nav__logo">Marlon</a>
-                </div>
-
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </nav>
-        </header>
-
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home bd-grid" id="home">
-                <div class="home__data">
-                    <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Marlon</span><br> Web Designer</h1>
-
-                    <a href="#" class="button">Contact</a>
-                </div>
-
-                <div class="home__social">
-                    <a href="" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                    <a href="" class="home__social-icon"><i class='bx bxl-behance' ></i></a>
-                    <a href="" class="home__social-icon"><i class='bx bxl-github' ></i></a>
-                </div>
-
-                <div class="home__img">
-                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <mask id="mask0" mask-type="alpha">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                        </mask>
-                        <g mask="url(#mask0)">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                            <image class="home__blob-img" x="50" y="60" href="assets/img/perfil.png"/>
-                        </g>
-                    </svg>
-                </div>
-            </section>
-
-            <!--===== ABOUT =====-->
-            <section class="about section " id="about">
-                <h2 class="section-title">About</h2>
-
-                <div class="about__container bd-grid">
-                    <div class="about__img">
-                        <img src="assets/img/about.jpg" alt="">
-                    </div>
-                    
-                    <div>
-                        <h2 class="about__subtitle">I'am Marlon</h2>
-                        <p class="about__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate cum expedita quo culpa tempora, assumenda, quis fugiat ut voluptates soluta, aut earum nemo recusandae cumque perferendis! Recusandae alias accusamus atque.</p>           
-                    </div>                                   
-                </div>
-            </section>
-
-            <!--===== SKILLS =====-->
-            <section class="skills section" id="skills">
-                <h2 class="section-title">Skills</h2>
-
-                <div class="skills__container bd-grid">          
-                    <div>
-                        <h2 class="skills__subtitle">Profesional Skills</h2>
-                        <p class="skills__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit optio id vero amet, alias architecto consectetur error eum eaque sit.</p>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-html5 skills__icon'></i>
-                                <span class="skills__name">HTML5</span>
-                            </div>
-                            <div class="skills__bar skills__html">
-
-                            </div>
-                            <div>
-                                <span class="skills__percentage">95%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-css3 skills__icon'></i>
-                                <span class="skills__name">CSS3</span>
-                            </div>
-                            <div class="skills__bar skills__css">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">85%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-javascript skills__icon' ></i>
-                                <span class="skills__name">JAVASCRIPT</span>
-                            </div>
-                            <div class="skills__bar skills__js">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">65%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxs-paint skills__icon'></i>
-                                <span class="skills__name">UX/UI</span>
-                            </div>
-                            <div class="skills__bar skills__ux">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">85%</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>              
-                        <img src="assets/img/work3.jpg" alt="" class="skills__img">
-                    </div>
-                </div>
-            </section>
-
-            <!--===== WORK =====-->
-            <section class="work section" id="work">
-                <h2 class="section-title">Work</h2>
-
-                <div class="work__container bd-grid">
-                    <a href="" class="work__img">
-                        <img src="assets/img/work1.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work2.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work3.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work4.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work5.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work6.jpg" alt="">
-                    </a>
-                </div>
-            </section>
-
-            <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
-                <h2 class="section-title">Contact</h2>
-
-                <div class="contact__container bd-grid">
-                    <form action="" class="contact__form">
-                        <input type="text" placeholder="Name" class="contact__input">
-                        <input type="mail" placeholder="Email" class="contact__input">
-                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <input type="button" value="Enviar" class="contact__button button">
-                    </form>
-                </div>
-            </section>
-        </main>
-
-        <!--===== FOOTER =====-->
-        <footer class="footer">
-            <p class="footer__title">Marlon</p>
-            <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="intro" id="home">
+         </div>
+        <div class="intro-image">
+            <img src="./uploads/profile.png" alt="Yesin Roka Magar">
+        </div>
+        <div class="intro-text">
+           <h1>Hello, It's Me<br><span>Yesin Roka Magar</span><br>And I'm a <span class="typing-animation">Financial Consultant</span></h1>
+            <p>Top Agency Manager at Reliable Nepal Life Insurance Ltd. | MDRT Member | Certified Trainer of Trainers. Dedicated to providing strategic financial planning and life insurance solutions that secure families across Nepal.</p>
+            
+            <div class="social-links">
+                <a href="https://wa.me/9779857677850"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/share/17qG8gD3J4/"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
-            <p class="footer__copy">&#169; Bedimcode. All rigths reserved</p>
-        </footer>
+            <a href="#about" class="btn">More About Me</a>
+        </div>
+    </section>
 
+   <section class="about reveal" id="about">
+    <h2 class="section-title">A Little About Me</h2>
+    <div class="about-container">
+        
+        <div class="about-left">
+            <div class="topic-pill">Nepal Top Agency Manager at Reliable Nepal Life Insurance</div>
+            <div class="topic-pill">MDRT Member & Senior Financial Consultant</div>
+            <div class="topic-pill">Certified Trainer of Trainers</div>
+            <div class="topic-pill">Lions Club President 2025/26 - Baglung Golden</div>   
+        </div>
+        
+        <div class="about-right">
+            <div class="brief-box">
+                <p>
+                    Born in Tarakhola, Baglung, I began my academic journey at Durga Bhawani Mavi before pursuing higher studies at Caribbean College and Tribhuvan University.
+                     Since entering the insurance industry in 2020, I have established myself as a dedicated Financial Consultant and a proud MDRT member. Beyond my consultancy
+                </p>
+                <p style="margin-top: 15px;">
+                    I serve as the Secretary at Sankalpa Saving and Credit Co-operative Society Ltd. and hold several promoter roles across various sectors. Deeply committed to social impact,
+                     I am honored to serve as the Lions Club President for the 2025/26 term with the Lions Club of Baglung Golden District
+                </p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<section id="accomplishment" class="accomplishment">
+    <h2 class="section-title">Accomplishment</h2>
+    <div class="pdf-grid-container">
+        
+        <div class="accomplishment-item" 
+             data-title="🏆 National Achievement: Rank #1 Agency Manager" 
+             data-long="In the Fiscal Year 2080/81, I was honored to be recognized as the Top Agency Manager in Nepal by Reliable Nepal Life Insurance. Leading the Baglung Branch to the top spot nationally,
+              this award reflects my dedication to providing world-class financial security and managing one of the country's most successful insurance teams.">
+            <div class="item-image-box">
+                <img src="./uploads/accomp1.jpeg" alt="Accomplishment 1">
+            </div>
+        </div>
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+        <div class="accomplishment-item" 
+             data-title="🏆 A Milestone in Excellence: All-Nepal Domestic Tour Award (2081)" 
+             data-long="Recognition is the fuel for further growth. Following a record-breaking year as the #1 Agency Manager, I was honored with the Domestic Tour Package Award 2081 by Reliable Nepal Life Insurance. This 'Historical Moment' represents not just a personal victory,
+              but the collective trust and hard work of my entire team and the clients we serve across Nepal">
+            <div class="item-image-box">
+                <img src="./uploads/accomp2.jpeg" alt="Accomplishment 2">
+            </div>
+        </div>
+        <div class="accomplishment-item" 
+             data-title="MDRT (Million Dollar Round Table) Qualifier" 
+             data-long="I am honored to have been awarded the MDRT Certificate, placing my practice among the elite financial consultants worldwide. This achievement, alongside being named the No. 1 Agency Manager in Nepal,
+              reflects my unwavering dedication to providing world-class financial security and strategic planning for my clients">
+            <div class="item-image-box">
+                <img src="./uploads/accomp3.jpeg" alt="Accomplishment 3">
+            </div>
+        </div>
+        <div class="accomplishment-item" 
+             data-title="Top 1 Area Team Business Award (FY 2079/080)" 
+             data-long="Reliable Nepal Life Insurance Ltd. Led the regional team to secure the #1 position in the 'Area Team Business' category. This recognition highlights my ability to manage high-performing teams, drive regional growth, and maintain consistent business excellence across a large territory.">
+            <div class="item-image-box">
+                <img src="./uploads/accomp4.jpeg" alt="Accomplishment 4">
+            </div>
+        </div>
+        <div class="accomplishment-item" 
+             data-title="Corporate Achievement Award" 
+             data-long="A moment of recognition for business excellence and leadership at the Reliable Nepal Life Insurance national conference.
+              Committed to setting new standards in the insurance and financial services industry.">
+            <div class="item-image-box">
+                <img src="./uploads/accomp5.jpeg" alt="Accomplishment 5">
+            </div>
+        </div>
+        <div class="accomplishment-item" 
+             data-title="Samman-Patra (Letter of Appreciation) for Excellence" 
+             data-long="Awarded by Reliable Nepal Life Insurance Limited.
+                        Honored with a formal Letter of Appreciation for exceptional performance and dedicated service. 
+                         This award recognizes a career built on reliability, ethical practice, and a "heroic commitment to helping families secure their financial futures across Nepal.>
+            <div class="item-image-box">
+                <img src="./uploads/accomp6.jpeg" alt="Accomplishment 6">
+            </div>
+        </div>
 
-        <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
-    </body>
+    </div>
+</section>
+
+<div id="accomplishmentModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        
+        <div class="modal-left">
+            <h3 id="modalTitle">Title Goes Here</h3>
+            <p id="modalDescription">Description goes here...</p>
+        </div>
+        
+        <div class="modal-right">
+            <img id="modalImg" src="" alt="Popup Accomplishment">
+        </div>
+    </div>
+</div>
+    <section id="future-strategies" class="future-strategies">
+    <h2 class="section-title">Future <span>Strategies</span></h2>
+
+<div class="timeline-container">
+    <div class="timeline-line"></div>
+    
+    <div class="timeline-item item-1">
+        <div class="milestone-content">
+            <span class="year">2025 - 2026</span>
+            <p>Lions Club Presidency & Community Impact Leadership</p>
+        </div>
+        <div class="milestone-dot"><i class="fas fa-users"></i></div>
+    </div>
+
+    <div class="timeline-item item-2">
+        <div class="milestone-content">
+            <span class="year">2027 - 2029</span>
+            <p>Expanding Financial Literacy & Wealth Management Networks</p>
+        </div>
+        <div class="milestone-dot"><i class="fas fa-chart-line"></i></div>
+    </div>
+
+    <div class="timeline-item item-3">
+        <div class="milestone-content">
+            <span class="year">2030 - 2033</span>
+            <p>MDRT Life Membership & Global Advisory Excellence</p>
+        </div>
+        <div class="milestone-dot"><i class="fas fa-award"></i></div>
+    </div>
+
+    <div class="timeline-target">
+        <i class="fas fa-crown"></i>
+        <div class="milestone-content">
+            <span class="year">2035</span>
+            <p>Legacy Building & National Financial Mentorship</p>
+        </div>
+    </div>
+</div>
+</section>
+<section class="skills-section reveal" id="skills">
+    <h2 class="section-title">PROFESSIONAL SKILLS</h2>
+    <div class="skills-grid">
+        
+        <div class="skill-card">
+            <div class="skill-icon-box">
+                <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>Problem Solving</h3>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-icon-box">
+                <i class="fas fa-users-cog"></i>
+            </div>
+            <h3>Leadership</h3>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-icon-box">
+                <i class="fas fa-comments"></i>
+            </div>
+            <h3>Communication</h3>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-icon-box">
+                <i class="fas fa-sync-alt"></i>
+            </div>
+            <h3>Adaptability</h3>
+        </div>
+
+    </div>
+</section> 
+<section class="services reveal" id="services">
+    <h2 class="section-title">Professional <span>Services</span></h2>
+    <p class="section-subtitle">Tailored financial strategies to secure your future and grow your legacy.</p>
+    
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Life Insurance</h3>
+            <p>Comprehensive protection plans designed to provide financial security for your loved ones, tailored to your specific life stage.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Wealth Management</h3>
+            <p>Strategic investment advice and portfolio growth strategies to help you achieve long-term financial independence.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-piggy-bank"></i>
+            </div>
+            <h3>Retirement Planning</h3>
+            <p>Ensure a comfortable and stress-free future with customized pension and saving schemes that work for you.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <h3>Corporate Training</h3>
+            <p>Leadership development and financial literacy workshops for organizations looking to empower their teams.</p>
+        </div>
+    </div>
+</section>
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <div class="contact-info">
+    <h2>Contact <span>Me</span></h2>
+    
+    <div class="contact-details">
+        <div class="contact-item">
+            <a href="tel:+9779857677850" class="contact-link">
+                <i class="fas fa-phone-alt"></i> 9857677850
+            </a>
+        </div>
+        <div class="contact-item">
+            <a href="tel:+9779818844962" class="contact-link">
+                <i class="fas fa-phone-alt"></i> 9818844962
+            </a>
+        </div>
+        
+        <p><strong>Location: </strong>Baglung, Nepal</p>
+
+        <div class="contact-item">
+            <p>
+                <strong>Email:</strong> 
+                <a href="mailto:yesinmagar04@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i> yesinmagar04@gmail.com
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="social-links">
+        <a href="https://www.facebook.com/share/17qG8gD3J4/"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://youtube.com/@yesinrokaofficial?si=5p5OqaIncn7aYb39"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/yesin_roka_magar "><i class="fa-brands fa-instagram"></i></a>
+    </div>
+</div>
+            <div class="contact-form">
+               <form action="https://formspree.io/f/mpqodrjv" method="POST">
+    <input type="text" name="name" placeholder="Enter Your Name" required>
+    
+    <input type="email" name="_replyto" placeholder="Enter Your Email" required>
+    
+    <input type="text" name="subject" placeholder="Enter Your Subject" required>
+    
+    <textarea name="message" placeholder="Enter Your Message" required></textarea>
+    
+    <button type="submit" class="btn">Submit</button>
+</form>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+   <script>
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const revealOnScroll = () => {
+    revealElements.forEach((el) => {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+      const elementBottom = el.getBoundingClientRect().bottom;
+      const revealPoint = 150; // Distance from bottom of screen to trigger
+
+      // Check if the element is within the visible window area
+      if (elementTop < windowHeight - revealPoint && elementBottom > 0) {
+        el.classList.add("active");
+      } else {
+        // This line allows the animation to repeat every time you scroll back
+        el.classList.remove("active");
+      }
+    });
+  };
+
+  window.addEventListener("scroll", revealOnScroll);
+  // Run on load to catch elements already in view
+  revealOnScroll();
+</script>
+</body>
 </html>
